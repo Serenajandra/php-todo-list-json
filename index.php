@@ -22,13 +22,13 @@
                 <div class="row justify-content-center">
                     <div class="col">
                         <ul class="list-group">
-                            <li class="list-group-item" v-for="toDo in toDoList"> {{toDo.text}}</li>
+                            <li class="list-group-item" :class="{'text-decoration-line-through' : toDo.done}" v-for="toDo in toDoList"> {{toDo.text}}</li>
                         </ul>
                     </div>
                 </div>
                 <div class="row my-3">
                     <div class="col mt-4">
-                        <input class="form-control" type="text" placeholder="Inserisci nuovo elemento" aria-label="Inserisci un nuovo todo" v-model="newToDo.text">
+                        <input class="form-control" type="text" placeholder="Inserisci nuovo elemento" aria-label="Inserisci un nuovo todo" v-model="newToDo">
                         <button class="btn btn-warning m-4 " @click="addNewToDo">Aggiungi</button>
                     </div>
                 </div>

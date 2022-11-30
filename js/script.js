@@ -4,29 +4,32 @@ createApp({
 data() {
     return {
         toDoList: [],
-        newToDo: {
-        "text":"",
-        "done":true},
+        newToDo: "",
     };
 },
 created() {
-    axios.get("todo.json").then((resp => {
-    console.log(resp);
+    axios.get("server.php").then((resp => {
+    // console.log(resp);
     this.toDoList = resp.data;
     }));
 },
 methods: {
+    
     addNewToDo(){
+        //Raccolgo il dato
         // console.log("add")
         const data = {
             newToDo: this.newToDo,
         };
-
-        axios.post("todo.json", data, {
+        //invio il dato al server
+        axios.post("server.php", data, {
             headers: {'content-type' : 'multipart/form-data'},
         })
         .then((resp) => {
+           this.toDoList = resp.data;
             console.log(resp);
+            this.newToDo = "";
+
         });
     }
 }
