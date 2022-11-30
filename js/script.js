@@ -23,7 +23,7 @@ methods: {
         };
         //invio il dato al server
         axios.post("server.php", data, {
-            headers: {'content-type' : 'multipart/form-data'},
+            headers: {'Content-Type' : 'multipart/form-data'},
         })
         .then((resp) => {
            this.toDoList = resp.data;
@@ -31,7 +31,22 @@ methods: {
             this.newToDo = "";
 
         });
+    },
+    textDone(index){
+
+        const data = {
+            doneIndex: index,
+        };
+
+        axios.post("server.php", data, {
+            headers: {'Content-Type' : 'multipart/form-data'},
+        })
+        .then((resp) => {
+            // console.log(resp);
+            this.toDoList = resp.data;
+        })
     }
+    
 }
 
 
