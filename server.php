@@ -13,9 +13,11 @@ if (isset($_POST["newToDo"])) {
     //lo inserisco nel file json
     file_put_contents("todo.json", json_encode($todos));
 } elseif (isset($_POST["doneIndex"])) {
-    // mettiamo done ad un todo
-    $todoIndex = $_post["doneIndex"];
-    $todos[$todoIndex]["done"] = true;
+    // Richiamo il doneIndex che ho inviato con metodo post
+    $todoIndex = $_POST["doneIndex"];
+    // cambiamo il valore del todoIndex in true al click e  torniamo a renderlo false al nuovo click 
+    $todos[$todoIndex]["done"] = !$todos[$todoIndex]["done"];
+    // rendiamo persistente il cambiamento caricandolo sul file json
     file_put_contents("todo.json", json_encode($todos));
 }
 

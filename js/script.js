@@ -39,10 +39,11 @@ methods: {
         };
 
         axios.post("server.php", data, {
-            headers: {'Content-Type' : 'multipart/form-data'},
+            headers: {"Content-Type" : "multipart/form-data"},
         })
         .then((resp) => {
             // console.log(resp);
+            // ricevo il risultato dal server e attuon la modifica nel frontend
             this.toDoList = resp.data;
         })
     }

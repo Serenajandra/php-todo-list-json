@@ -22,7 +22,9 @@
                 <div class="row justify-content-center">
                     <div class="col">
                         <ul class="list-group">
-                            <li class="list-group-item" :class="{'text-decoration-line-through' : toDo.done}" v-for="(toDo,index) in toDoList"> <span @click="textDone(index)"> {{toDo.text}}</span></li>
+                            <li class="list-group-item" :class="{'text-decoration-line-through' : toDo.done}" v-for="(toDo,index) in toDoList">
+                                <span @click="textDone(index)"> {{toDo.text}}</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
