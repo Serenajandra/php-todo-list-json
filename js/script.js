@@ -43,10 +43,25 @@ methods: {
         })
         .then((resp) => {
             // console.log(resp);
-            // ricevo il risultato dal server e attuon la modifica nel frontend
+            // ricevo il risultato dal server e attuo la modifica nel frontend
             this.toDoList = resp.data;
         })
-    }
+    },
+
+    removeToDo(index){
+        const data = {
+            removeIndex: index,
+        };
+
+        axios.post("server.php", data, {
+            headers: {"Content-Type" : "multipart/form-data"},
+        })
+        .then((resp) => {
+            // console.log(resp);
+            // ricevo il risultato dal server e attuo la modifica nel frontend
+            this.toDoList = resp.data;
+        })
+    },
     
 }
 
